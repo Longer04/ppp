@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Alert Cenowy</h1>
+        <p class="lead">Sprawdzanie cen produktów które ciebie interesują</p>
+        <hr class="my-4">
+        <p><a class="btn btn-primary btn-lg" href="{{ url_for('users.register_user') }}" role="button">Start</a></p>
+    </div>
+{% endblock %}

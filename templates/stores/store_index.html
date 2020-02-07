@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+    <h1>Sklepy</h1>
+</header>
+<section>
+    <div class="list-group">
+        {% for store in stores %}
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading">{{ store.name }}</h4>
+            <p>
+                Dla URL zaczynającego się z {{ store.url_prefix }}.
+            </p>
+            {% if session['email'] == config.ADMIN %}
+            <a class="btn btn-secondary" href="{{ url_for('stores.edit_store', store_id=store._id) }}">
+                Edytuj
+            </a>
+            <a class="btn btn-danger" href="{{ url_for('stores.delete_store', store_id=store._id) }}" role="button">
+                Usuń Sklep
+            </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% if session['email'] == config.ADMIN %}
+    <a class="btn btn-primary mt-3" href="{{ url_for('stores.create_store') }}">
+        Stwórz nowy sklep.
+    </a>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+    <h1>Nowy Sklep</h1>
+</header>
+<section class="create-store-form">
+    <form method="post">
+        <div class="form-group">
+            <label for="name">Nazwa</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nowy Sklep">
+        </div>
+        <div class="form-group">
+            <label for="url_prefix">Prefix URL</label>
+            <input type="text" class="form-control" id="url_prefix" name="url_prefix" placeholder="https://..."
+                aria-describedby="urlPrefixHelp">
+            <small id="urlPrefixHelp" class="form-text text-muted">
+                Jaka jest część wspólna URL dla przemiotów tego sklepu.
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="tag_name">Tag HTML</label>
+            <input type="text" class="form-control" id="tag_name" name="tag_name" placeholder="span"
+                aria-describedby="priceLimitHelp">
+            <small id="priceLimitHelp" class="form-text text-muted">
+                W jakim tagu HTML jest zawarta cena w tym sklepie.
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="query">Element HTML</label>
+            <input type="text" class="form-control" id="query" name="query" placeholder='{"class": "price price--large"}'
+                aria-describedby="queryHelp">
+            <small id="queryHelp" class="form-text text-muted">
+                Jakie atrybuty są w elemencie zawierającym cenę?
+            </small>
+        </div>
+        <button type="submit" class="btn btn-primary">Stwórz</button>
+    </form>
+</section>
+{% endblock %}
